@@ -1,0 +1,65 @@
+{% extends "template/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="mark">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Make Appointment</legend>
+            {{ form|crispy }}
+
+            <form>
+                <div class="form-group">
+
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="first_name">
+                </div>
+                <div class="form-group">
+                    <label for="surname">Surname</label>
+                    <input type="text" class="form-control" id="surname" name="surname"
+                           placeholder="surname">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <input type="text" class="form-control" id="role" name="role"
+                           placeholder="role">
+                </div>
+                <div class="form-group">
+                    <label for="number">Number</label>
+                    <input type="text" class="form-control" id="number" name="number"
+                           placeholder="number">
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="datetime-local" class="form-control" id="date" name="date"
+                           placeholder="date">
+                </div>
+                <div class="form-group">
+                    <label for="number">Optional Number</label>
+                    <input type="text" class="form-control" id="number1" name="optional_number"
+                           placeholder="another number">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea class="form-control" id="address" name="address" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="desc">Reason</label>
+                    <textarea class="form-control" id="desc" name="reason" rows="3"></textarea>
+                </div>
+            </form>
+            <!--to split-->
+        </fieldset>
+        <div class="form-group">
+            <form method="post" action=" ">
+                {% csrf_token %}
+                <button class="btn-outline-info" type="submit" value="submit">Submit</button>
+            </form>
+
+        </div>
+
+    </form>
+</div>
+
+{% endblock content %}
+

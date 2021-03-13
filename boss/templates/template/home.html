@@ -1,0 +1,8 @@
+{% extends "template/base.html" %}
+{% block content %}
+     {% for appointment in appointments %}
+         <h1>{{ appointment.title }}</h1>
+         <p>{{ appointment.content }}</p>
+     {% endfor %}
+{% endblock content %}
+
